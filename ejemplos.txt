@@ -286,3 +286,83 @@ void main() {
   Bat newBat = new Bat();
   newBat.fly('ricardo');
   newBat.walk('preuba');
+}
+
+
+///ejercicio 1///
+import 'dart:math';
+class Punto{
+  int _x;
+  int _y;
+  
+  Punto(this._x, this._y);
+  
+  String polares(){
+    num radio = pow(this._x,  2)+pow(this._y,2);
+    radio = sqrt(radio);
+    double theta = this._y.toDouble() / this._x;
+    theta = atan(theta);
+    
+    return '($radio.$theta)';
+  }
+  
+  String cartesiano() => '($_x.$_y)';
+    
+}
+
+void main(){
+ 
+}
+
+//ejercicio 4//
+import 'dart:math';
+
+class Complejo{
+  double _numReales;
+  double _num2;
+  Complejo(this._numReales, this._num2);
+  
+  void show(){
+    print("( ${_numReales}, ${_num2})");
+  }
+  
+  void cambioReales(double cont) => _numReales += cont;
+  void cambioNum2(double cont) => _num2 += cont;
+  double getNumReales() => _numReales;
+  double getNum2() => _num2;
+  double modulo(){
+    double mod = sqrt(pow(_numReales,2) + pow(_num2,2));
+    
+    return mod;
+  }
+  
+}
+
+Complejo sumaComplejo(Complejo a1,Complejo b2){
+  
+  a1.cambioReales(b2.getNumReales());
+  a1.cambioNum2(b2.getNum2());
+  
+  return a1; 
+}
+Complejo restaComplejo(Complejo a1,Complejo b2){
+  
+  a1.cambioReales(-b2.getNumReales());
+  a1.cambioNum2(-b2.getNum2());
+  
+  return a1; 
+}
+
+
+
+void main() {
+ 
+  Complejo num = Complejo(2,5);
+  num.show();
+  print("${num.modulo()}"); 
+  Complejo num3 = Complejo(9,2);
+  
+  Complejo num4 = sumaComplejo(num,num3);
+  
+  
+}
