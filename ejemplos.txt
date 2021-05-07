@@ -366,3 +366,48 @@ void main() {
   
   
 }
+
+//ejercicio 10//
+class BarcoTitanic {
+  bool state;
+  String matricula;
+  double esloraM;
+  String aFabricacion;
+  String potenciaVP;
+  String numMastiles;
+
+  BarcoTitanic(this.state, this.matricula, this.esloraM, this.aFabricacion,this.potenciaVP, this.numMastiles);
+  
+}
+
+class ClienteAlquiler{
+  
+  String cedula;
+  String nombre;
+  int cantidadDias;
+  
+  ClienteAlquiler(this.cedula, this.nombre, this.cantidadDias);
+  
+}
+
+class AlquilerBarco extends ClienteAlquiler{
+  
+  AlquilerBarco(String cedula, String nombre, int cantidadDias )
+    : super(cedula, nombre, cantidadDias);
+  
+  void calAlquiler(double esloraM) {
+    int precio=1200;
+    double precioAlquiler=(esloraM*cantidadDias*precio);
+    String msj = "el precio del arquiler es: ${precioAlquiler}, para los ${cantidadDias} dias";
+    print(msj);
+  }
+}
+
+void main(){
+  BarcoTitanic a = new BarcoTitanic(true, 'asdf345', 20.5, '30', '600','1');
+  
+  AlquilerBarco alquiler = new AlquilerBarco('1006027385', 'jorge',15);
+  double esloraM=a.esloraM;
+  alquiler.calAlquiler(esloraM);
+
+}
